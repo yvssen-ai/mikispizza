@@ -1,0 +1,97 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Fredoka', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  --color-miki-gold: #f0a83c;
+  --color-miki-gold-dark: #cf8a24;
+  --color-miki-gold-light: #ffce85;
+  --color-miki-teal: #4f8a7d;
+  --color-miki-teal-dark: #2c4c45;
+  --color-miki-black: #17211d;
+  --color-miki-charcoal: #1f2b26;
+  --color-miki-cream: #f2e8df;
+  --color-miki-cream-dim: #e8dcc9;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-steam: steam 4s ease-in-out infinite;
+  --animate-glow: glow 2.4s ease-in-out infinite;
+  --animate-marquee: marquee 22s linear infinite;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) rotate(var(--float-rot, 0deg));
+    }
+    50% {
+      transform: translateY(-14px) rotate(var(--float-rot, 0deg));
+    }
+  }
+  @keyframes steam {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 0;
+    }
+    20% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateY(-60px) scale(1.4);
+      opacity: 0;
+    }
+  }
+  @keyframes glow {
+    0%,
+    100% {
+      opacity: 0.55;
+      filter: blur(18px);
+    }
+    50% {
+      opacity: 1;
+      filter: blur(26px);
+    }
+  }
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--color-miki-black);
+  color: var(--color-miki-cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background: var(--color-miki-gold);
+  color: var(--color-miki-black);
+}
